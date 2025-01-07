@@ -52,6 +52,7 @@ jobs:
             qt6-webchannel:p
             qt6-websockets:p
             x264:p
+            cc:p
 
       - name: Configure and build RetroArch
         shell: msys2 {0}
