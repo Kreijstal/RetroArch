@@ -67,8 +67,7 @@ jobs:
           echo "Collecting DLLs and binaries"
           mkdir -p dist
           cp retroarch.exe dist/
-          MSYS_LOWER=$(echo "${{ matrix.sys }}" | tr '[:upper:]' '[:lower:]')
-          ldd retroarch.exe | grep "${{ matrix.sys }}" | awk '{print $3}' | grep -i "/${MSYS_LOWER}/bin/" | xargs -I {} cp {} dist/
+          ldd retroarch.exe|grep $MINGW_PREFIX |awk '{print $3}'|xargs -I {} cp {} dist/
 
       - name: Archive build artifacts
         if: success()
