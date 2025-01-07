@@ -72,7 +72,7 @@ jobs:
           echo "Collecting DLLs and binaries"
           mkdir -p dist
           cp retroarch.exe dist/
-          ldd retroarch.exe | grep "${{ matrix.sys }}" | awk '{print $3}' | grep -i "/${{ matrix.sys | lower }}/bin/" | xargs -I {} cp {} dist/
+          ldd retroarch.exe | grep "${{ matrix.sys }}" | awk '{print $3}' | grep -i "/${{ toLowerCase(matrix.sys) }}/bin/" | xargs -I {} cp {} dist/
 
       - name: Archive build artifacts
         if: success()
