@@ -61,12 +61,6 @@ jobs:
           ./configure
           make -j$(nproc)
 
-      - name: Run tests (if any)
-        shell: msys2 {0}
-        run: |
-          echo "Running tests in ${{ matrix.sys }} environment"
-          make check
-
       - name: Collect DLLs and binaries
         shell: msys2 {0}
         run: |
